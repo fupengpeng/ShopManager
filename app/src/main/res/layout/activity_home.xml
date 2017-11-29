@@ -1,0 +1,557 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:paddingTop="@dimen/dp_20"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <!--一店，标题栏-->
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_45"
+        android:background="#000000"
+        android:paddingLeft="@dimen/dp_15"
+        android:paddingRight="@dimen/dp_15">
+
+        <ImageView
+            android:layout_width="@dimen/dp_30"
+            android:layout_height="@dimen/dp_30"
+            android:layout_gravity="center"
+            android:src="@drawable/shilipic" />
+
+        <TextView
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="一店 HomeActivity"
+            android:textColor="#ffffff" />
+
+        <ImageView
+            android:layout_width="@dimen/dp_30"
+            android:layout_height="@dimen/dp_30"
+            android:layout_gravity="center"
+            android:src="@drawable/shilipic" />
+    </LinearLayout>
+    <!--内容-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_0"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_150"
+                android:src="@drawable/benjing" />
+            <!--一键开单  服务单  客单-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_150"
+                android:layout_marginLeft="@dimen/dp_15"
+                android:layout_marginRight="@dimen/dp_15"
+                android:orientation="horizontal">
+                <!--一键开单-->
+                <LinearLayout
+                    android:id="@+id/ll_yijiankaidan"
+                    android:layout_width="@dimen/dp_0"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/dp_3"
+                    android:layout_weight="1"
+                    android:background="@drawable/ll_frame"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_0"
+                        android:layout_marginLeft="@dimen/dp_5"
+                        android:layout_weight="0.2"
+                        android:gravity="center|left"
+                        android:text="一键开单" />
+
+                    <ImageView
+                        android:layout_margin="@dimen/dp_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_0"
+                        android:layout_weight="0.8"
+                        android:src="@drawable/shilipic" />
+
+                </LinearLayout>
+                <!--服务单-->
+                <LinearLayout
+                    android:layout_width="@dimen/dp_0"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/dp_3"
+                    android:layout_weight="1"
+                    android:background="@drawable/ll_frame"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_0"
+                        android:layout_marginLeft="@dimen/dp_5"
+                        android:layout_weight="0.2"
+                        android:gravity="center|left"
+                        android:text="服务单" />
+
+                    <ImageView
+                        android:layout_margin="@dimen/dp_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_0"
+                        android:layout_weight="0.8"
+                        android:src="@drawable/shilipic" />
+
+                </LinearLayout>
+                <!--客单-->
+                <LinearLayout
+                    android:layout_width="@dimen/dp_0"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/dp_3"
+                    android:layout_weight="1"
+                    android:background="@drawable/ll_frame"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_0"
+                        android:layout_marginLeft="@dimen/dp_5"
+                        android:layout_weight="0.2"
+                        android:gravity="center|left"
+                        android:text="客单" />
+
+                    <ImageView
+                        android:layout_margin="@dimen/dp_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_0"
+                        android:layout_weight="0.8"
+                        android:src="@drawable/shilipic" />
+
+                </LinearLayout>
+            </LinearLayout>
+            <!--常用功能-->
+            <LinearLayout
+                android:paddingTop="@dimen/dp_5"
+                android:paddingBottom="@dimen/dp_5"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_30"
+                android:layout_marginLeft="@dimen/dp_15"
+                android:layout_marginRight="@dimen/dp_15"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="@dimen/dp_3"
+                    android:layout_height="match_parent"
+                    android:background="#ff0000" />
+
+                <TextView
+                    android:layout_width="@dimen/dp_0"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/dp_8"
+                    android:layout_weight="1"
+                    android:gravity="center|left"
+                    android:text="常用功能" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_2"
+                android:background="#d9d9d9" />
+            <!--常用功能内容-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_300"
+                android:layout_marginLeft="@dimen/dp_15"
+                android:layout_marginRight="@dimen/dp_15"
+                android:orientation="vertical">
+                <!--第一排-->
+                <LinearLayout
+                    android:layout_weight="0.5"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_0"
+                    android:orientation="horizontal">
+                    <!--开卡-->
+                    <LinearLayout
+                        android:layout_width="@dimen/dp_0"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
+                        android:orientation="vertical"
+                        android:padding="@dimen/dp_5">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp_0"
+                            android:layout_weight="0.7"
+                            android:src="@drawable/shilipic" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp_0"
+                            android:layout_weight="0.3"
+                            android:gravity="center|top"
+                            android:text="开卡" />
+                    </LinearLayout>
+                    <!--续卡充值-->
+                    <LinearLayout
+                        android:layout_width="@dimen/dp_0"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
+                        android:orientation="vertical"
+                        android:padding="@dimen/dp_5">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp_0"
+                            android:layout_weight="0.7"
+                            android:src="@drawable/shilipic" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp_0"
+                            android:layout_weight="0.3"
+                            android:gravity="center|top"
+                            android:text="续卡充值" />
+                    </LinearLayout>
+                    <!--预约-->
+                    <LinearLayout
+                        android:layout_width="@dimen/dp_0"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
+                        android:orientation="vertical"
+                        android:padding="@dimen/dp_5">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp_0"
+                            android:layout_weight="0.7"
+                            android:src="@drawable/shilipic" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp_0"
+                            android:layout_weight="0.3"
+                            android:gravity="center|top"
+                            android:text="预约" />
+                    </LinearLayout>
+                    <!--管理-->
+                    <LinearLayout
+                        android:layout_width="@dimen/dp_0"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
+                        android:orientation="vertical"
+                        android:padding="@dimen/dp_5">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp_0"
+                            android:layout_weight="0.7"
+                            android:src="@drawable/shilipic" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp_0"
+                            android:layout_weight="0.3"
+                            android:gravity="center|top"
+                            android:text="管理" />
+                    </LinearLayout>
+                </LinearLayout>
+                <!--第二排-->
+                <LinearLayout
+                    android:layout_weight="0.5"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_0"
+                    android:orientation="horizontal">
+                    <!--业绩提成-->
+                    <LinearLayout
+                        android:layout_width="@dimen/dp_0"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
+                        android:orientation="vertical"
+                        android:padding="@dimen/dp_5">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp_0"
+                            android:layout_weight="0.7"
+                            android:src="@drawable/shilipic" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp_0"
+                            android:layout_weight="0.3"
+                            android:gravity="center|top"
+                            android:text="业绩提成" />
+                    </LinearLayout>
+                    <!--会员建档-->
+                    <LinearLayout
+                        android:layout_width="@dimen/dp_0"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
+                        android:orientation="vertical"
+                        android:padding="@dimen/dp_5">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp_0"
+                            android:layout_weight="0.7"
+                            android:src="@drawable/shilipic" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp_0"
+                            android:layout_weight="0.3"
+                            android:gravity="center|top"
+                            android:text="会员建档" />
+                    </LinearLayout>
+                    <!--空白-->
+                    <LinearLayout
+                        android:layout_width="@dimen/dp_0"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
+                        android:orientation="vertical"
+                        android:padding="@dimen/dp_5">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp_0"
+                            android:layout_weight="0.7" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp_0"
+                            android:layout_weight="0.3"
+                            android:gravity="center" />
+                    </LinearLayout>
+                    <!--空白-->
+                    <LinearLayout
+                        android:layout_width="@dimen/dp_0"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.25"
+                        android:orientation="vertical"
+                        android:padding="@dimen/dp_5">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp_0"
+                            android:layout_weight="0.7" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp_0"
+                            android:layout_weight="0.3"
+                            android:gravity="center" />
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+            <View
+                android:background="#d5d5d5"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_10"/>
+
+            <!--昨日报表-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_150"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_0"
+                    android:layout_weight="0.25"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/dp_30"
+                        android:layout_height="@dimen/dp_30" />
+
+                    <TextView
+                        android:gravity="center|left"
+                        android:layout_width="@dimen/dp_0"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="昨日报表" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_0"
+                    android:layout_weight="0.5"
+                    android:orientation="horizontal">
+                    <!--实收现金-->
+                    <LinearLayout
+                        android:layout_width="@dimen/dp_0"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:gravity="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp_0"
+                            android:layout_weight="0.5"
+                            android:text="0.0" />
+
+                        <TextView
+                            android:gravity="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp_0"
+                            android:layout_weight="0.5"
+                            android:text="实收现金" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="@dimen/dp_2"
+                        android:layout_height="match_parent"
+                        android:background="#d9d9d9" />
+                    <!--昨日客数-->
+                    <LinearLayout
+                        android:layout_width="@dimen/dp_0"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:gravity="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp_0"
+                            android:layout_weight="0.5"
+                            android:text="0.0" />
+
+                        <TextView
+                            android:gravity="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp_0"
+                            android:layout_weight="0.5"
+                            android:text="昨日客数" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="@dimen/dp_2"
+                        android:layout_height="match_parent"
+                        android:background="#d9d9d9" />
+                    <!--新增会员-->
+                    <LinearLayout
+                        android:layout_width="@dimen/dp_0"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:gravity="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp_0"
+                            android:layout_weight="0.5"
+                            android:text="0.0" />
+
+                        <TextView
+                            android:gravity="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp_0"
+                            android:layout_weight="0.5"
+                            android:text="新增会员" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <Button
+                    android:layout_marginRight="@dimen/dp_100"
+                    android:layout_marginLeft="@dimen/dp_100"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_0"
+                    android:layout_weight="0.25"
+                    android:text="查看营业分析" />
+
+            </LinearLayout>
+            <View
+                android:background="#d5d5d5"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_10"/>
+            <!--小程序-->
+            <ImageView
+                android:src="@drawable/shilipic"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+
+        </LinearLayout>
+    </ScrollView>
+    <!--导航栏-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_60"
+        android:orientation="horizontal">
+        <!--消息-->
+        <LinearLayout
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.25"
+            android:orientation="vertical"
+            android:padding="@dimen/dp_5">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_0"
+                android:layout_weight="0.7"
+                android:src="@drawable/shilipic" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_0"
+                android:layout_weight="0.3"
+                android:gravity="center"
+                android:text="开卡" />
+        </LinearLayout>
+        <!--工作-->
+        <LinearLayout
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.25"
+            android:orientation="vertical"
+            android:padding="@dimen/dp_5">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_0"
+                android:layout_weight="0.7"
+                android:src="@drawable/shilipic" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_0"
+                android:layout_weight="0.3"
+                android:gravity="center"
+                android:text="开卡" />
+        </LinearLayout>
+        <!--我的-->
+        <LinearLayout
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.25"
+            android:orientation="vertical"
+            android:padding="@dimen/dp_5">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_0"
+                android:layout_weight="0.7"
+                android:src="@drawable/shilipic" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_0"
+                android:layout_weight="0.3"
+                android:gravity="center"
+                android:text="开卡" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

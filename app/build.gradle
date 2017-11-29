@@ -1,0 +1,58 @@
+apply plugin: 'com.android.application'
+/**/
+apply plugin: 'com.neenbedankt.android-apt'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "26.0.1"
+
+    /*图片处理*/
+    aaptOptions.cruncherEnabled = false
+    aaptOptions.useNewCruncher = false
+
+    defaultConfig {
+        applicationId "com.jdlx.shopmanager"
+        minSdkVersion 21
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:26.+'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    testCompile 'junit:junit:4.12'
+    compile project(':pulltorefresh')
+    //eventbus
+    compile 'org.greenrobot:eventbus:3.0.0'
+    apt 'org.greenrobot:eventbus-annotation-processor:3.0.1'
+    //网络请求
+    compile files('libs/nohttp1.0.7.jar')
+    //butterknife
+    compile 'com.jakewharton:butterknife:8.1.0'
+    apt 'com.jakewharton:butterknife-compiler:8.1.0'
+    //地址选择
+    compile 'liji.library.dev:citypickerview:0.7.0'
+
+    compile files('libs/fastjson-1.2.9.jar')
+    compile files('libs/MobTools-2017.0608.1618.jar')
+    compile files('libs/MobCommons-2017.0608.1618.jar')
+}
+/*eventbus 配置*/
+apt {
+    arguments {
+        eventBusIndex "com.whoislcj.eventbus.MyEventBusIndex"
+    }
+}
