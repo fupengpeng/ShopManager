@@ -1,14 +1,14 @@
 [
     {
-        "merged": "E:\\workspace\\AndroidStudio\\workspaceTestApp\\ShopManager\\pulltorefresh\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\indicator_arrow.png",
-        "source": "E:\\workspace\\AndroidStudio\\workspaceTestApp\\ShopManager\\pulltorefresh\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\indicator_arrow.png"
+        "merged": "D:\\sutudioworkspace\\ShopManager\\pulltorefresh\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\default_ptr_rotate.png",
+        "source": "D:\\sutudioworkspace\\ShopManager\\pulltorefresh\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\default_ptr_rotate.png"
     },
     {
-        "merged": "E:\\workspace\\AndroidStudio\\workspaceTestApp\\ShopManager\\pulltorefresh\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\default_ptr_rotate.png",
-        "source": "E:\\workspace\\AndroidStudio\\workspaceTestApp\\ShopManager\\pulltorefresh\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\default_ptr_rotate.png"
+        "merged": "D:\\sutudioworkspace\\ShopManager\\pulltorefresh\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\default_ptr_flip.png",
+        "source": "D:\\sutudioworkspace\\ShopManager\\pulltorefresh\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\default_ptr_flip.png"
     },
     {
-        "merged": "E:\\workspace\\AndroidStudio\\workspaceTestApp\\ShopManager\\pulltorefresh\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\default_ptr_flip.png",
-        "source": "E:\\workspace\\AndroidStudio\\workspaceTestApp\\ShopManager\\pulltorefresh\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\default_ptr_flip.png"
+        "merged": "D:\\sutudioworkspace\\ShopManager\\pulltorefresh\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\indicator_arrow.png",
+        "source": "D:\\sutudioworkspace\\ShopManager\\pulltorefresh\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\indicator_arrow.png"
     }
 ]

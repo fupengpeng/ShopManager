@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.jdlx.shopmanager.R;
 import com.jdlx.shopmanager.activity.BaseActivity;
@@ -26,6 +27,10 @@ public class LoginActivity extends BaseActivity implements ILoginView {
 
     @BindView(R.id.btn_login)
     Button btnLogin;
+    @BindView(R.id.tv_password_login)
+    TextView tvPasswordLogin;
+
+    Intent intent;
 
     /**
      * 登录主导器
@@ -55,15 +60,6 @@ public class LoginActivity extends BaseActivity implements ILoginView {
 
     }
 
-    @OnClick(R.id.btn_login)
-    public void onViewClicked() {
-
-        String account = null,password = null;
-        loginPresenter.login(account, password);
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-
-    }
 
     /**
      * 登录成功页面变化
@@ -79,5 +75,23 @@ public class LoginActivity extends BaseActivity implements ILoginView {
     @Override
     public void setPasswordLogin() {
 
+    }
+
+
+    @OnClick({R.id.btn_login, R.id.tv_password_login})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.btn_login:
+                String account = null, password = null;
+                loginPresenter.login(account, password);
+                intent = new Intent(this, MainActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.tv_password_login:
+
+                intent = new Intent(this, ServiceTicketActivity.class);
+                startActivity(intent);
+                break;
+        }
     }
 }

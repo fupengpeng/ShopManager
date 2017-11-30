@@ -17,6 +17,7 @@
             android:background="@color/colorAccent"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+            <!--three-->
             <LinearLayout
                 android:id="@+id/ll_scv_three"
                 android:orientation="vertical"
@@ -26,22 +27,21 @@
 
 
             </LinearLayout>
+            <!--one-->
             <LinearLayout
                 android:id="@+id/ll_scv_one"
+                android:background="#ffff00"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="@dimen/dp_2000">
 
 
             </LinearLayout>
-
-
-
         </LinearLayout>
-        <!--上层-->
+        <!--上层     two  -->
         <LinearLayout
             android:id="@+id/ll_scv_two"
-            android:background="#aaffaa"
+            android:background="@color/colorPrimary"
             android:layout_marginLeft="@dimen/dp_15"
             android:layout_marginRight="@dimen/dp_15"
             android:layout_marginTop="@dimen/dp_200"
@@ -50,7 +50,6 @@
             <ScrollView
                 android:id="@+id/sv_main"
                 android:scrollbars="none"
-                android:background="@color/colorPrimary"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <LinearLayout
@@ -356,6 +355,12 @@
                             </LinearLayout>
                         </LinearLayout>
 
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_2000">
 
                     </LinearLayout>
 

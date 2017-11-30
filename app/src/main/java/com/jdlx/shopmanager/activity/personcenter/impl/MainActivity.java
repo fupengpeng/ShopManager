@@ -12,6 +12,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
+import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
@@ -83,8 +86,6 @@ public class MainActivity extends AppCompatActivity implements IBaseView {
 
         svMain.setOnTouchListener(new View.OnTouchListener() {
 
-
-
             @TargetApi(Build.VERSION_CODES.HONEYCOMB)
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -124,11 +125,19 @@ public class MainActivity extends AppCompatActivity implements IBaseView {
                             rlScv.getLocationOnScreen(location);
                             int x = location[0];
                             int y = location[1];
-                            //
+                            //方法一，修改控件margin值
+//                            LinearLayout.LayoutParams oneparamsrams = (LinearLayout.LayoutParams) llScvOne.getLayoutParams();
+//                            oneparams.setMargins(0,120,0,0);
+//                            llScvOne.setLayoutParams(oneparams);
+
 //                            RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) llScvTwo.getLayoutParams();
-//
 //                            params.setMargins(45,  0, 45, 0);// 通过自定义坐标来放置你的控件  新位置属性,left，top，right，bottom
 //                            llScvTwo.setLayoutParams(params);
+
+//                            LinearLayout.LayoutParams threeparams = (LinearLayout.LayoutParams) llScvThree.getLayoutParams();
+//                            threeparams.setMargins(0,0,0,0);
+//                            llScvThree.setLayoutParams(threeparams);
+
 
 //                            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) svMain
 //                                    .getLayoutParams();
@@ -137,13 +146,26 @@ public class MainActivity extends AppCompatActivity implements IBaseView {
 //                            layoutParams.rightMargin = 45;
 //                            layoutParams.bottomMargin = 45;
 //                            svMain.setLayoutParams(layoutParams);
-
-
-
-
+                            //动画效果设置
+                            Animation scaleAnimation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.scaleyanim);
+                            llScvThree.startAnimation(scaleAnimation);
+                            Animation oneAnimationS = AnimationUtils.loadAnimation(MainActivity.this, R.anim.translate_one_s);
+                            llScvOne.startAnimation(oneAnimationS);
+                            Animation twoAnimationS = AnimationUtils.loadAnimation(MainActivity.this, R.anim.translate_two_s);
+                            llScvTwo.startAnimation(twoAnimationS);
 
                         } else if (y2 - y1 > 10) {
                             Toast.makeText(MainActivity.this, "向下滑", Toast.LENGTH_SHORT).show();
+//                            RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) llScvTwo.getLayoutParams();
+//                            params.setMargins(45,  600, 45, 0);// 通过自定义坐标来放置你的控件  新位置属性,left，top，right，bottom
+//                            llScvTwo.setLayoutParams(params);
+                            Animation oneAnimationX = AnimationUtils.loadAnimation(MainActivity.this, R.anim.translate_one_x);
+                            llScvOne.startAnimation(oneAnimationX);
+                            Animation twoAnimationX = AnimationUtils.loadAnimation(MainActivity.this, R.anim.translate_two_x);
+                            llScvTwo.startAnimation(twoAnimationX);
+
+                            Animation scaleAnimation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.scalexanim);
+                            llScvThree.startAnimation(scaleAnimation);
                         } else if (x1 - x2 > 10) {
                             Toast.makeText(MainActivity.this, "向左滑", Toast.LENGTH_SHORT).show();
                         } else if (x2 - x1 > 10) {
