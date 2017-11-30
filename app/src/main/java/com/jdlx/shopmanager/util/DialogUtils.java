@@ -10,7 +10,9 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
 
-
+import com.jdlx.shopmanager.R;
+import com.jdlx.shopmanager.application.MyApplication;
+import com.jdlx.shopmanager.customerview.ProgressDialog;
 
 
 /**
@@ -293,5 +295,46 @@ public class DialogUtils {
         return dialog;
     }
 
+    /**
+     * 带圆形进度条的提示对话框
+     *
+     * @param message
+     * @return
+     */
+    public Dialog showLoading(String message) {
+        ProgressDialog dialog = new ProgressDialog(context,
+                R.style.dialogBase);
+        TextView txt = dialog.getMsgTextView();
+        if (message != null && txt != null) {
+            txt.setText(message);
+        }
+
+        Window window = dialog.getWindow();
+        WindowManager.LayoutParams lp = window.getAttributes();
+        window.setGravity(Gravity.CENTER);
+        lp.alpha = 0.8f;
+
+        dialog.show();
+        dialog.setCancelable(false);
+        return dialog;
+    }
+
+    /**
+     * 带圆形进度条的提示对话框(非Activity)
+     *
+     * @param message
+     * @return
+     */
+    public static Dialog showLoadingOnBg(String message) {
+        ProgressDialog dialog = new ProgressDialog(MyApplication.getInstance(), R.style.dialogBase);
+        TextView txt = dialog.getMsgTextView();
+        if (message != null && txt != null) {
+            txt.setText(message);
+        }
+        dialog.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
+        dialog.show();
+        dialog.setCancelable(false);
+        return dialog;
+    }
 
 }

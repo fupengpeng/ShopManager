@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_marginTop="@dimen/dp_15"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!--下层-->
+        <LinearLayout
+            android:orientation="vertical"
+            android:background="@color/colorAccent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:background="#ffaaee"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_240">
+
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+        <!--上层-->
+        <LinearLayout
+            android:background="#aaffaa"
+            android:layout_marginLeft="@dimen/dp_15"
+            android:layout_marginRight="@dimen/dp_15"
+            android:layout_marginTop="@dimen/dp_200"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ScrollView
+                android:scrollbars="none"
+                android:background="@color/colorPrimary"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <!--一键下单等-->
+                    <LinearLayout
+                        android:layout_margin="@dimen/dp_15"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_240">
+                        <!--第一行-->
+                        <LinearLayout
+                            android:layout_weight="0.5"
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp_0">
+                            <!--第一列-->
+                            <LinearLayout
+                                android:padding="@dimen/dp_10"
+                                android:orientation="vertical"
+                                android:layout_weight="0.1"
+                                android:layout_width="@dimen/dp_0"
+                                android:layout_height="match_parent">
+                                <ImageView
+                                    android:src="@drawable/shilipic"
+                                    android:layout_weight="0.5"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/dp_0" />
+
+                                <TextView
+                                    android:id="@+id/v4_text"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/dp_0"
+                                    android:layout_weight="0.5"
+                                    android:gravity="center|top"
+                                    android:paddingTop="@dimen/dp_10"
+                                    android:text="绩效" />
+                            </LinearLayout>
+                            <!--第二列-->
+                            <LinearLayout
+                                android:padding="@dimen/dp_10"
+                                android:orientation="vertical"
+                                android:layout_weight="0.1"
+                                android:layout_width="@dimen/dp_0"
+                                android:layout_height="match_parent">
+                                <ImageView
+                                    android:src="@drawable/shilipic"
+                                    android:layout_weight="0.5"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/dp_0" />
+                                <TextView
+                                    android:gravity="center|top"
+                                    android:paddingTop="@dimen/dp_10"
+                                    android:text="绩效"
+                                    android:layout_weight="0.5"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/dp_0" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+                        <!--第二行-->
+                        <LinearLayout
+                            android:layout_weight="0.5"
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp_0">
+                            <!--第一列-->
+                            <LinearLayout
+                                android:padding="@dimen/dp_10"
+                                android:orientation="vertical"
+                                android:layout_weight="0.1"
+                                android:layout_width="@dimen/dp_0"
+                                android:layout_height="match_parent">
+                                <ImageView
+                                    android:src="@drawable/shilipic"
+                                    android:layout_weight="0.5"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/dp_0" />
+                                <TextView
+                                    android:text="绩效"
+                                    android:gravity="center|top"
+                                    android:paddingTop="@dimen/dp_10"
+                                    android:layout_weight="0.5"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/dp_0" />
+                            </LinearLayout>
+                            <!--第二列-->
+                            <LinearLayout
+                                android:padding="@dimen/dp_10"
+                                android:orientation="vertical"
+                                android:layout_weight="0.1"
+                                android:layout_width="@dimen/dp_0"
+                                android:layout_height="match_parent">
+                                <ImageView
+                                    android:src="@drawable/shilipic"
+                                    android:layout_weight="0.5"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/dp_0" />
+                                <TextView
+                                    android:text="绩效"
+                                    android:gravity="center|top"
+                                    android:paddingTop="@dimen/dp_10"
+                                    android:layout_weight="0.5"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/dp_0" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+                    <!--我的消息-->
+                    <TextView
+                        android:text="我的消息"
+                        android:background="@color/colorAccent"
+                        android:paddingLeft="@dimen/dp_15"
+                        android:gravity="center|left"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_45" />
+                    <!--我的消息详情-->
+                    <LinearLayout
+                        android:layout_margin="@dimen/dp_15"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_100">
+                        <ImageView
+                            android:layout_gravity="center"
+                            android:layout_width="@dimen/dp_50"
+                            android:layout_height="@dimen/dp_50" />
+                        <LinearLayout
+                            android:paddingBottom="@dimen/dp_20"
+                            android:paddingTop="@dimen/dp_20"
+                            android:orientation="vertical"
+                            android:layout_weight="1"
+                            android:layout_width="@dimen/dp_0"
+                            android:layout_height="match_parent">
+                            <TextView
+                                android:text="你收到一条消息"
+                                android:gravity="center|left"
+                                android:layout_weight="0.5"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/dp_0" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/dp_0"
+                                android:layout_weight="0.5"
+                                android:gravity="center|left"
+                                android:text="日期时间" />
+                        </LinearLayout>
+                        <ImageView
+                            android:src="@drawable/ic_chevron_right_black_24dp"
+                            android:layout_gravity="center"
+                            android:layout_width="@dimen/dp_30"
+                            android:layout_height="@dimen/dp_30" />
+                    </LinearLayout>
+                    <!--管理功能-->
+                    <TextView
+                        android:text="管理功能"
+                        android:background="@color/colorAccent"
+                        android:paddingLeft="@dimen/dp_15"
+                        android:gravity="center|left"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_45" />
+                    <LinearLayout
+                        android:layout_margin="@dimen/dp_15"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_150">
+                        <!--第一行-->
+                        <LinearLayout
+                            android:layout_weight="0.5"
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp_0">
+                            <!--第一列-->
+                            <LinearLayout
+                                android:padding="@dimen/dp_10"
+                                android:orientation="vertical"
+                                android:layout_weight="0.1"
+                                android:layout_width="@dimen/dp_0"
+                                android:layout_height="match_parent">
+                                <ImageView
+                                    android:src="@drawable/shilipic"
+                                    android:layout_weight="0.5"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/dp_0" />
+                                <TextView
+                                    android:gravity="center|top"
+                                    android:paddingTop="@dimen/dp_10"
+                                    android:text="绩效"
+                                    android:layout_weight="0.5"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/dp_0" />
+                            </LinearLayout>
+                            <!--第二列-->
+                            <LinearLayout
+                                android:padding="@dimen/dp_10"
+                                android:orientation="vertical"
+                                android:layout_weight="0.1"
+                                android:layout_width="@dimen/dp_0"
+                                android:layout_height="match_parent">
+                                <ImageView
+                                    android:src="@drawable/shilipic"
+                                    android:layout_weight="0.5"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/dp_0" />
+                                <TextView
+                                    android:gravity="center|top"
+                                    android:paddingTop="@dimen/dp_10"
+                                    android:text="绩效"
+                                    android:layout_weight="0.5"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/dp_0" />
+                            </LinearLayout>
+                            <!--第三列-->
+                            <LinearLayout
+                                android:padding="@dimen/dp_10"
+                                android:orientation="vertical"
+                                android:layout_weight="0.1"
+                                android:layout_width="@dimen/dp_0"
+                                android:layout_height="match_parent">
+                                <ImageView
+                                    android:src="@drawable/shilipic"
+                                    android:layout_weight="0.5"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/dp_0" />
+                                <TextView
+                                    android:gravity="center|top"
+                                    android:paddingTop="@dimen/dp_10"
+                                    android:text="绩效"
+                                    android:layout_weight="0.5"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/dp_0" />
+                            </LinearLayout>
+                        </LinearLayout>
+                        <!--第二行-->
+                        <LinearLayout
+                            android:layout_weight="0.5"
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp_0">
+                            <!--第一列-->
+                            <LinearLayout
+                                android:padding="@dimen/dp_10"
+                                android:orientation="vertical"
+                                android:layout_weight="0.1"
+                                android:layout_width="@dimen/dp_0"
+                                android:layout_height="match_parent">
+                                <ImageView
+                                    android:src="@drawable/shilipic"
+                                    android:layout_weight="0.5"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/dp_0" />
+                                <TextView
+                                    android:text="绩效"
+                                    android:gravity="center|top"
+                                    android:paddingTop="@dimen/dp_10"
+                                    android:layout_weight="0.5"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/dp_0" />
+                            </LinearLayout>
+                            <!--第二列-->
+                            <LinearLayout
+                                android:padding="@dimen/dp_10"
+                                android:orientation="vertical"
+                                android:layout_weight="0.1"
+                                android:layout_width="@dimen/dp_0"
+                                android:layout_height="match_parent">
+                                <ImageView
+                                    android:src="@drawable/shilipic"
+                                    android:layout_weight="0.5"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/dp_0" />
+                                <TextView
+                                    android:text="绩效"
+                                    android:gravity="center|top"
+                                    android:paddingTop="@dimen/dp_10"
+                                    android:layout_weight="0.5"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/dp_0" />
+                            </LinearLayout>
+                            <!--第三列-->
+                            <LinearLayout
+                                android:padding="@dimen/dp_10"
+                                android:orientation="vertical"
+                                android:layout_weight="0.1"
+                                android:layout_width="@dimen/dp_0"
+                                android:layout_height="match_parent">
+                                <ImageView
+                                    android:layout_weight="0.5"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/dp_0" />
+                                <TextView
+                                    android:gravity="center|top"
+                                    android:paddingTop="@dimen/dp_10"
+                                    android:layout_weight="0.5"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/dp_0" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+</LinearLayout>

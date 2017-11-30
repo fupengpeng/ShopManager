@@ -6,6 +6,7 @@ import android.os.Process;
 
 
 import com.mob.MobApplication;
+import com.yolanda.nohttp.Logger;
 import com.yolanda.nohttp.NoHttp;
 import com.yolanda.nohttp.rest.RequestQueue;
 
@@ -13,7 +14,6 @@ import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
 
 /**
@@ -57,8 +57,8 @@ public class MyApplication extends MobApplication {
         NoHttp.initialize(this);
 
         // 开始NoHttp的调试模式, 这样就能看到请求过程和日志（可选）
-//        Logger.setTag("jdlx");
-//        Logger.setDebug(true);
+        Logger.setTag("jdlx");
+        Logger.setDebug(true);
 
         //实例化全局请求队列
         requestQueue = NoHttp.newRequestQueue();
