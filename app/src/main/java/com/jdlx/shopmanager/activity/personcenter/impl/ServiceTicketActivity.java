@@ -38,8 +38,7 @@ public class ServiceTicketActivity extends AppCompatActivity {
 
     @OnClick(R.id.btn_move)
     public void onViewClicked() {
-        Animation scaleAnimation = AnimationUtils.loadAnimation(ServiceTicketActivity.this, R.anim.scaleyanim);
-        ivAnimTest.startAnimation(scaleAnimation);
+
     }
 
 

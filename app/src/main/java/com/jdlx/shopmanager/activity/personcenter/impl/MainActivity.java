@@ -1,7 +1,5 @@
 package com.jdlx.shopmanager.activity.personcenter.impl;
 
-import android.annotation.TargetApi;
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -9,52 +7,66 @@ import android.support.annotation.Nullable;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
-import android.view.animation.AnimationSet;
 import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.ScrollView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.jdlx.shopmanager.R;
 import com.jdlx.shopmanager.activity.IBaseView;
-import com.jdlx.shopmanager.util.AnimationUtil;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements IBaseView {
 
-    float x1 = 0;
-    float x2 = 0;
-    float y1 = 0;
-    float y2 = 0;
+    int left ;
+    int right;
+    int top ;
+    int bottom;
+    int dx;
+    int dy;
 
-    private int _xDelta;
-    private int _yDelta;
+    // main
+    @BindView(R.id.dl_atvt_main_content)
+    DrawerLayout dlAtvtMainContent;
 
-    @BindView(R.id.v4_text)
-    TextView v4Text;
-    @BindView(R.id.sv_main)
-    ScrollView svMain;
-    @BindView(R.id.v4_drawerlayout)
-    DrawerLayout v4Drawerlayout;
-    @BindView(R.id.ll_scv_three)
-    LinearLayout llScvThree;
-    @BindView(R.id.ll_scv_one)
-    LinearLayout llScvOne;
-    @BindView(R.id.ll_scv_two)
-    LinearLayout llScvTwo;
-    @BindView(R.id.rl_scv)
-    RelativeLayout rlScv;
-    private DrawerLayout drawerLayout;
+    // 主页面
+    @BindView(R.id.rl_atvt_main_content)
+    RelativeLayout rlAtvtMainContent;
 
-    private TextView textView;
+    // scroll栏
+    @BindView(R.id.ll_atvt_main_superstratum)
+    LinearLayout llAtvtMainSuperstratum;
+
+    // 标题栏
+    @BindView(R.id.ll_atvt_main_title)
+    LinearLayout llAtvtMainTitle;
+
+    // 图片栏
+    @BindView(R.id.ll_atvt_main_iv)
+    LinearLayout llAtvtMainIv;
+
+    // 空白栏
+    @BindView(R.id.ll_atvt_main_black)
+    LinearLayout llAtvtMainBlack;
+
+    // 图片栏内布局
+    @BindView(R.id.rl_atvt_main_untreated_order)
+    RelativeLayout rlAtvtMainUntreatedOrder;
+
+    private int startX;
+    private int startY;
+
+    private boolean isCenter = true;
+
+    Timer timer = new Timer();
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -74,114 +86,133 @@ public class MainActivity extends AppCompatActivity implements IBaseView {
     }
 
     private void initView() {
-        drawerLayout = (DrawerLayout) findViewById(R.id.v4_drawerlayout);
-        textView = (TextView) findViewById(R.id.v4_text);
-        textView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, HomeActivity.class);
-                startActivity(intent);
-            }
-        });
 
-        svMain.setOnTouchListener(new View.OnTouchListener() {
 
-            @TargetApi(Build.VERSION_CODES.HONEYCOMB)
+        llAtvtMainSuperstratum.setOnTouchListener(new View.OnTouchListener() {
+
             @Override
             public boolean onTouch(View v, MotionEvent event) {
 
-//                final int X = (int) event.getRawX();
-//                final int Y = (int) event.getRawY();
 
-                // TODO Auto-generated method stub
                 switch (event.getAction()) {
-                    //手指抬起
-                    case MotionEvent.ACTION_UP:
-
-                        break;
-
-                    //手指落下
                     case MotionEvent.ACTION_DOWN:
-
-//                        RelativeLayout.LayoutParams lParams = (RelativeLayout.LayoutParams) svMain
-//                                .getLayoutParams();
-//                        _xDelta = X - lParams.leftMargin;
-//                        _yDelta = Y - lParams.topMargin;
-                        x1 = event.getX();
-                        y1 = event.getY();
+                        // 获取手指按下的坐标
+                        startX = (int) event.getRawX();
+                        startY = (int) event.getRawY();
                         break;
-
-                    //手指滑动
                     case MotionEvent.ACTION_MOVE:
 
-                        //判断当前移动方向
-                        x2 = event.getX();
-                        y2 = event.getY();
-                        if (y1 - y2 > 10) {
-                            // 向上
-                            Toast.makeText(MainActivity.this, "向上滑", Toast.LENGTH_SHORT).show();
-                            //获取rlScv的坐标（y？？）
-                            int[] location = new int[2];
-                            rlScv.getLocationOnScreen(location);
-                            int x = location[0];
-                            int y = location[1];
-                            //方法一，修改控件margin值
-//                            LinearLayout.LayoutParams oneparamsrams = (LinearLayout.LayoutParams) llScvOne.getLayoutParams();
-//                            oneparams.setMargins(0,120,0,0);
-//                            llScvOne.setLayoutParams(oneparams);
+                        // 获取TextView上一次上 下 左 右各边与父控件的距离
+                        left = llAtvtMainSuperstratum.getLeft();
+                        right = llAtvtMainSuperstratum.getRight();
+                        top = llAtvtMainSuperstratum.getTop();
+                        bottom = llAtvtMainSuperstratum.getBottom();
 
-//                            RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) llScvTwo.getLayoutParams();
-//                            params.setMargins(45,  0, 45, 0);// 通过自定义坐标来放置你的控件  新位置属性,left，top，right，bottom
-//                            llScvTwo.setLayoutParams(params);
+                        // 获取手指移动到了哪个点的坐标
+                        int movingX = (int) event.getRawX();
+                        int movingY = (int) event.getRawY();
+                        // 相对于上一个点，手指在X和Y方向分别移动的距离
+                        dx = movingX - startX;
+                        dy = movingY - startY;
 
-//                            LinearLayout.LayoutParams threeparams = (LinearLayout.LayoutParams) llScvThree.getLayoutParams();
-//                            threeparams.setMargins(0,0,0,0);
-//                            llScvThree.setLayoutParams(threeparams);
+//                        if (isCenter){  // 在中间时
+//                            //scrollView失去焦点
+//
+//                            if (dy <= (-10)) {  // 向上滑动
+//                                // 设置本次TextView的上 下 左 右各边与父控件的距离
+//                                Animation twoAnimationS = AnimationUtils.loadAnimation(MainActivity.this, R.anim.ll_atvt_main_superstratum_s);
+//                                llAtvtMainSuperstratum.startAnimation(twoAnimationS);
+//                                TimerTask task = new TimerTask() {
+//                                    @Override
+//                                    public void run() {
+//
+//                                        runOnUiThread(new Runnable() {      // UI thread
+//                                            @Override
+//                                            public void run() {
+////                                                llAtvtMainSuperstratum.layout(left , 135, right , bottom );
+//                                            }
+//                                        });
+//
+//
+//                                    }
+//                                };
+//                                timer.schedule(task, 1000);       // timeTask
+//                                llAtvtMainSuperstratum.layout(left , top + dy, right , bottom );
+//
+//                                Animation oneAnimationS = AnimationUtils.loadAnimation(MainActivity.this, R.anim.ll_atvt_main_black_anim_s);
+//                                llAtvtMainBlack.startAnimation(oneAnimationS);
+//
+//                                Animation scaleAnimation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.ll_atvt_main_iv_anim_s);
+//                                llAtvtMainIv.startAnimation(scaleAnimation);
+//
+//
+//
+//                                isCenter = false;
+//                            }
+//                            if (dy >= 10 ){  // 向下滑动
+//                                // 动画效果
+//
+//                            }
+//                        }else {
+//                            //scrollView获取焦点
+//
+//                            if (dy <= (-10)) {  // 向上滑动
+//                                // 动画效果
+//
+//                            }
+//                            if (dy >= 10 ){  // 向下滑动
+//                                // 设置到中间去
+//
+//                                TimerTask task = new TimerTask() {
+//                                    @Override
+//                                    public void run() {
+//
+//                                        runOnUiThread(new Runnable() {      // UI thread
+//                                            @Override
+//                                            public void run() {
+//
+//                                            }
+//                                        });
+//
+//
+//                                    }
+//                                };
+//                                timer.schedule(task, 1000);       // timeTask
+//                                llAtvtMainSuperstratum.layout(left, 990, right, bottom);
+//
+//                                Animation twoAnimationX = AnimationUtils.loadAnimation(MainActivity.this, R.anim.ll_atvt_main_superstratum_x);
+//                                llAtvtMainSuperstratum.startAnimation(twoAnimationX);
+//
+//                                Animation oneAnimationX = AnimationUtils.loadAnimation(MainActivity.this, R.anim.ll_atvt_main_black_anim_x);
+//                                llAtvtMainBlack.startAnimation(oneAnimationX);
+//
+//                                Animation scaleAnimation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.ll_atvt_main_iv_anim_x);
+//                                llAtvtMainIv.startAnimation(scaleAnimation);
+//
+//                                isCenter = true;
+//                            }
+//
+//
+//                        }
 
 
-//                            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) svMain
-//                                    .getLayoutParams();
-//                            layoutParams.leftMargin = X - _xDelta;
-//                            layoutParams.topMargin = Y - _yDelta;
-//                            layoutParams.rightMargin = 45;
-//                            layoutParams.bottomMargin = 45;
-//                            svMain.setLayoutParams(layoutParams);
-                            //动画效果设置
-                            Animation scaleAnimation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.scaleyanim);
-                            llScvThree.startAnimation(scaleAnimation);
-                            Animation oneAnimationS = AnimationUtils.loadAnimation(MainActivity.this, R.anim.translate_one_s);
-                            llScvOne.startAnimation(oneAnimationS);
-                            Animation twoAnimationS = AnimationUtils.loadAnimation(MainActivity.this, R.anim.translate_two_s);
-                            llScvTwo.startAnimation(twoAnimationS);
+                        llAtvtMainSuperstratum.layout(left , top + dy, right , bottom );
 
-                        } else if (y2 - y1 > 10) {
-                            Toast.makeText(MainActivity.this, "向下滑", Toast.LENGTH_SHORT).show();
-//                            RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) llScvTwo.getLayoutParams();
-//                            params.setMargins(45,  600, 45, 0);// 通过自定义坐标来放置你的控件  新位置属性,left，top，right，bottom
-//                            llScvTwo.setLayoutParams(params);
-                            Animation oneAnimationX = AnimationUtils.loadAnimation(MainActivity.this, R.anim.translate_one_x);
-                            llScvOne.startAnimation(oneAnimationX);
-                            Animation twoAnimationX = AnimationUtils.loadAnimation(MainActivity.this, R.anim.translate_two_x);
-                            llScvTwo.startAnimation(twoAnimationX);
 
-                            Animation scaleAnimation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.scalexanim);
-                            llScvThree.startAnimation(scaleAnimation);
-                        } else if (x1 - x2 > 10) {
-                            Toast.makeText(MainActivity.this, "向左滑", Toast.LENGTH_SHORT).show();
-                        } else if (x2 - x1 > 10) {
-                            Toast.makeText(MainActivity.this, "向右滑", Toast.LENGTH_SHORT).show();
-                        }
-
+                        // 本次移动的结尾作为下一次移动的开始
+                        startX = (int) event.getRawX();
+                        startY = (int) event.getRawY();
+                        break;
+                    case MotionEvent.ACTION_UP:
                         break;
                 }
-                return false;
+                rlAtvtMainContent.invalidate();
+                return true;//如果返回true,从手指接触屏幕到手指离开屏幕，将不会触发点击事件。
             }
         });
 
+
     }
-
-
-
 
 
 }
