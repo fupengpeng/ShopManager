@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
@@ -17,6 +18,7 @@ import android.widget.RelativeLayout;
 import com.jdlx.shopmanager.R;
 import com.jdlx.shopmanager.activity.IBaseView;
 
+import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -25,10 +27,13 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements IBaseView {
 
+    public String TAG = "MainActivity----";
+
     int left ;
     int right;
     int top ;
     int bottom;
+    int heigth;
     int dx;
     int dy;
 
@@ -93,7 +98,6 @@ public class MainActivity extends AppCompatActivity implements IBaseView {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
 
-
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
                         // 获取手指按下的坐标
@@ -115,13 +119,64 @@ public class MainActivity extends AppCompatActivity implements IBaseView {
                         dx = movingX - startX;
                         dy = movingY - startY;
 
-//                        if (isCenter){  // 在中间时
-//                            //scrollView失去焦点
-//
-//                            if (dy <= (-10)) {  // 向上滑动
-//                                // 设置本次TextView的上 下 左 右各边与父控件的距离
+                        if (isCenter){  // 在中间时
+                            Log.e(TAG, "onTouch: ----" + "scrollview 在中间" );
+                            //scrollView失去焦点
+
+                            if (dy < 0) {  // 向上滑动
+                                // 设置本次TextView的上 下 左 右各边与父控件的距离
+                                Log.e(TAG, "onTouch: ----" + " scrollview 向上滑动" );
+
 //                                Animation twoAnimationS = AnimationUtils.loadAnimation(MainActivity.this, R.anim.ll_atvt_main_superstratum_s);
 //                                llAtvtMainSuperstratum.startAnimation(twoAnimationS);
+                                TimerTask task = new TimerTask() {
+                                    @Override
+                                    public void run() {
+
+                                        runOnUiThread(new Runnable() {      // UI thread
+                                            @Override
+                                            public void run() {
+//                                                llAtvtMainSuperstratum.layout(left , 135, right , bottom );
+                                                    llAtvtMainSuperstratum.layout(left , 135, right , bottom );
+                                            }
+                                        });
+
+
+                                    }
+                                };
+                                timer.schedule(task, 1000);       // timeTask
+
+
+//                                llAtvtMainSuperstratum.layout(left , 135, right , bottom );
+                                Log.e(TAG, "onTouch: ----top = " + top + "   dy = " + dy );
+
+
+
+                                Animation oneAnimationS = AnimationUtils.loadAnimation(MainActivity.this, R.anim.ll_atvt_main_black_anim_s);
+                                llAtvtMainBlack.startAnimation(oneAnimationS);
+
+                                Animation scaleAnimation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.ll_atvt_main_iv_anim_s);
+                                llAtvtMainIv.startAnimation(scaleAnimation);
+
+
+
+                                isCenter = false;
+                            }
+                            if (dy > 0 ){  // 向下滑动
+                                // 动画效果
+                                Log.e(TAG, "onTouch: ----" + "在顶部向下滑动");
+                            }
+                        }else {
+                            //scrollView获取焦点
+
+                            if (dy < 0) {  // 向上滑动
+                                // 动画效果
+                                Log.e(TAG, "onTouch: ====" + "向上滑动" );
+
+                            }
+                            if (dy > 0 ){  // 向下滑动
+                                // 设置到中间去
+                                Log.e(TAG, "onTouch: ====" + "向下滑动" );
 //                                TimerTask task = new TimerTask() {
 //                                    @Override
 //                                    public void run() {
@@ -129,47 +184,6 @@ public class MainActivity extends AppCompatActivity implements IBaseView {
 //                                        runOnUiThread(new Runnable() {      // UI thread
 //                                            @Override
 //                                            public void run() {
-////                                                llAtvtMainSuperstratum.layout(left , 135, right , bottom );
-//                                            }
-//                                        });
-//
-//
-//                                    }
-//                                };
-//                                timer.schedule(task, 1000);       // timeTask
-//                                llAtvtMainSuperstratum.layout(left , top + dy, right , bottom );
-//
-//                                Animation oneAnimationS = AnimationUtils.loadAnimation(MainActivity.this, R.anim.ll_atvt_main_black_anim_s);
-//                                llAtvtMainBlack.startAnimation(oneAnimationS);
-//
-//                                Animation scaleAnimation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.ll_atvt_main_iv_anim_s);
-//                                llAtvtMainIv.startAnimation(scaleAnimation);
-//
-//
-//
-//                                isCenter = false;
-//                            }
-//                            if (dy >= 10 ){  // 向下滑动
-//                                // 动画效果
-//
-//                            }
-//                        }else {
-//                            //scrollView获取焦点
-//
-//                            if (dy <= (-10)) {  // 向上滑动
-//                                // 动画效果
-//
-//                            }
-//                            if (dy >= 10 ){  // 向下滑动
-//                                // 设置到中间去
-//
-//                                TimerTask task = new TimerTask() {
-//                                    @Override
-//                                    public void run() {
-//
-//                                        runOnUiThread(new Runnable() {      // UI thread
-//                                            @Override
-//                                            public void run() {
 //
 //                                            }
 //                                        });
@@ -178,34 +192,40 @@ public class MainActivity extends AppCompatActivity implements IBaseView {
 //                                    }
 //                                };
 //                                timer.schedule(task, 1000);       // timeTask
-//                                llAtvtMainSuperstratum.layout(left, 990, right, bottom);
-//
+
+                                Log.e(TAG, "onTouch: ====top = " + top + "   dy = " + dy );
+
+
+                                llAtvtMainSuperstratum.layout(left, 990, right, bottom);
+
 //                                Animation twoAnimationX = AnimationUtils.loadAnimation(MainActivity.this, R.anim.ll_atvt_main_superstratum_x);
 //                                llAtvtMainSuperstratum.startAnimation(twoAnimationX);
-//
-//                                Animation oneAnimationX = AnimationUtils.loadAnimation(MainActivity.this, R.anim.ll_atvt_main_black_anim_x);
-//                                llAtvtMainBlack.startAnimation(oneAnimationX);
-//
-//                                Animation scaleAnimation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.ll_atvt_main_iv_anim_x);
-//                                llAtvtMainIv.startAnimation(scaleAnimation);
-//
-//                                isCenter = true;
-//                            }
-//
-//
-//                        }
+
+                                Animation oneAnimationX = AnimationUtils.loadAnimation(MainActivity.this, R.anim.ll_atvt_main_black_anim_x);
+                                llAtvtMainBlack.startAnimation(oneAnimationX);
+
+                                Animation scaleAnimation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.ll_atvt_main_iv_anim_x);
+                                llAtvtMainIv.startAnimation(scaleAnimation);
+
+                                isCenter = true;
+                            }
+
+                        }
 
 
-                        llAtvtMainSuperstratum.layout(left , top + dy, right , bottom );
+//                        heigth = top + dy;
+//                        llAtvtMainSuperstratum.layout(left , heigth, right , bottom );
 
 
                         // 本次移动的结尾作为下一次移动的开始
                         startX = (int) event.getRawX();
                         startY = (int) event.getRawY();
+                        Log.e(TAG, "onTouch: -=-=-= startX = " + startX + "  startY  =  " + startY );
                         break;
                     case MotionEvent.ACTION_UP:
                         break;
                 }
+                Log.e(TAG, "onTouch: " + "--------------------" );
                 rlAtvtMainContent.invalidate();
                 return true;//如果返回true,从手指接触屏幕到手指离开屏幕，将不会触发点击事件。
             }

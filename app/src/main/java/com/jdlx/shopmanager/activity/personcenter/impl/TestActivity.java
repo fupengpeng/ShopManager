@@ -1,7 +1,5 @@
 package com.jdlx.shopmanager.activity.personcenter.impl;
 
-import android.annotation.TargetApi;
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -9,17 +7,12 @@ import android.support.annotation.Nullable;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.ScrollView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.jdlx.shopmanager.R;
 import com.jdlx.shopmanager.activity.IBaseView;
@@ -34,7 +27,7 @@ import butterknife.ButterKnife;
  * Created by fupengpeng on 2017/12/1 0001.
  */
 
-public class test extends AppCompatActivity implements IBaseView {
+public class TestActivity extends AppCompatActivity implements IBaseView {
 
     int left ;
     int right;
@@ -131,7 +124,7 @@ public class test extends AppCompatActivity implements IBaseView {
 
                             if (dy <= (-10)) {  // 向上滑动
                                 // 设置本次TextView的上 下 左 右各边与父控件的距离
-                                Animation twoAnimationS = AnimationUtils.loadAnimation(test.this, R.anim.ll_atvt_main_superstratum_s);
+                                Animation twoAnimationS = AnimationUtils.loadAnimation(TestActivity.this, R.anim.ll_atvt_main_superstratum_s);
                                 llAtvtMainSuperstratum.startAnimation(twoAnimationS);
                                 TimerTask task = new TimerTask() {
                                     @Override
@@ -150,10 +143,10 @@ public class test extends AppCompatActivity implements IBaseView {
                                 timer.schedule(task, 1000);       // timeTask
 
 
-                                Animation oneAnimationS = AnimationUtils.loadAnimation(test.this, R.anim.ll_atvt_main_black_anim_s);
+                                Animation oneAnimationS = AnimationUtils.loadAnimation(TestActivity.this, R.anim.ll_atvt_main_black_anim_s);
                                 llAtvtMainBlack.startAnimation(oneAnimationS);
 
-                                Animation scaleAnimation = AnimationUtils.loadAnimation(test.this, R.anim.ll_atvt_main_iv_anim_s);
+                                Animation scaleAnimation = AnimationUtils.loadAnimation(TestActivity.this, R.anim.ll_atvt_main_iv_anim_s);
                                 llAtvtMainIv.startAnimation(scaleAnimation);
 
 
@@ -191,13 +184,13 @@ public class test extends AppCompatActivity implements IBaseView {
                                 timer.schedule(task, 1000);       // timeTask
 
 
-                                Animation twoAnimationX = AnimationUtils.loadAnimation(test.this, R.anim.ll_atvt_main_superstratum_x);
+                                Animation twoAnimationX = AnimationUtils.loadAnimation(TestActivity.this, R.anim.ll_atvt_main_superstratum_x);
                                 llAtvtMainSuperstratum.startAnimation(twoAnimationX);
 
-                                Animation oneAnimationX = AnimationUtils.loadAnimation(test.this, R.anim.ll_atvt_main_black_anim_x);
+                                Animation oneAnimationX = AnimationUtils.loadAnimation(TestActivity.this, R.anim.ll_atvt_main_black_anim_x);
                                 llAtvtMainBlack.startAnimation(oneAnimationX);
 
-                                Animation scaleAnimation = AnimationUtils.loadAnimation(test.this, R.anim.ll_atvt_main_iv_anim_x);
+                                Animation scaleAnimation = AnimationUtils.loadAnimation(TestActivity.this, R.anim.ll_atvt_main_iv_anim_x);
                                 llAtvtMainIv.startAnimation(scaleAnimation);
 
                                 isCenter = true;
