@@ -32,8 +32,7 @@ public class AddServiceItemActivity extends AppCompatActivity {
             decorView.setSystemUiVisibility(option);
             getWindow().setStatusBarColor(Color.BLACK);
         }
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.hide();
+
     }
 
 }

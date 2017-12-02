@@ -40,8 +40,7 @@ public class ServiceTicketParticularsActivity extends AppCompatActivity {
             decorView.setSystemUiVisibility(option);
             getWindow().setStatusBarColor(Color.BLACK);
         }
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.hide();
+
     }
 
     @OnClick(R.id.ll_yijiankaidan)

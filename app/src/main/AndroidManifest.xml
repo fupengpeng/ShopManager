@@ -31,6 +31,7 @@
         <activity android:name=".activity.personcenter.impl.ServiceTicketParticularsActivity"/>
         <activity android:name=".activity.personcenter.impl.AddServiceItemActivity"/>
         <activity android:name=".activity.personcenter.impl.ServiceTicketActivity"/>
+        <activity android:name=".activity.personcenter.impl.TestActivity"/>
     </application>
 
 </manifest>

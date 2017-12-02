@@ -7,10 +7,9 @@ import android.support.annotation.Nullable;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
@@ -18,7 +17,6 @@ import com.jdlx.shopmanager.R;
 import com.jdlx.shopmanager.activity.IBaseView;
 
 import java.util.Timer;
-import java.util.TimerTask;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -29,9 +27,10 @@ import butterknife.ButterKnife;
 
 public class TestActivity extends AppCompatActivity implements IBaseView {
 
-    int left ;
+    String TAG = "TestActivity";
+    int left;
     int right;
-    int top ;
+    int top;
     int bottom;
     int dx;
     int dy;
@@ -63,6 +62,8 @@ public class TestActivity extends AppCompatActivity implements IBaseView {
     // 图片栏内布局
     @BindView(R.id.rl_atvt_main_untreated_order)
     RelativeLayout rlAtvtMainUntreatedOrder;
+    @BindView(R.id.ll_atvt_main_bg)
+    LinearLayout llAtvtMainBg;
 
     private int startX;
     private int startY;
@@ -75,7 +76,7 @@ public class TestActivity extends AppCompatActivity implements IBaseView {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.test);
         ButterKnife.bind(this);
         if (Build.VERSION.SDK_INT >= 21) {
             View decorView = getWindow().getDecorView();
@@ -84,8 +85,7 @@ public class TestActivity extends AppCompatActivity implements IBaseView {
             decorView.setSystemUiVisibility(option);
             getWindow().setStatusBarColor(Color.TRANSPARENT);
         }
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.hide();
+
         initView();
     }
 
@@ -96,7 +96,6 @@ public class TestActivity extends AppCompatActivity implements IBaseView {
 
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-
 
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
@@ -119,94 +118,77 @@ public class TestActivity extends AppCompatActivity implements IBaseView {
                         dx = movingX - startX;
                         dy = movingY - startY;
 
-                        if (isCenter){  // 在中间时
+                        if (isCenter) {  // 在中间时
+                            Log.e(TAG, "onTouch: ----" + "scrollview 在中间");
                             //scrollView失去焦点
 
-                            if (dy <= (-10)) {  // 向上滑动
-                                // 设置本次TextView的上 下 左 右各边与父控件的距离
-                                Animation twoAnimationS = AnimationUtils.loadAnimation(TestActivity.this, R.anim.ll_atvt_main_superstratum_s);
-                                llAtvtMainSuperstratum.startAnimation(twoAnimationS);
-                                TimerTask task = new TimerTask() {
-                                    @Override
-                                    public void run() {
 
-                                        runOnUiThread(new Runnable() {      // UI thread
-                                            @Override
-                                            public void run() {
-                                                llAtvtMainSuperstratum.layout(left , 135, right , bottom );
-                                            }
-                                        });
-
-
-                                    }
-                                };
-                                timer.schedule(task, 1000);       // timeTask
-
-
-                                Animation oneAnimationS = AnimationUtils.loadAnimation(TestActivity.this, R.anim.ll_atvt_main_black_anim_s);
-                                llAtvtMainBlack.startAnimation(oneAnimationS);
-
-                                Animation scaleAnimation = AnimationUtils.loadAnimation(TestActivity.this, R.anim.ll_atvt_main_iv_anim_s);
-                                llAtvtMainIv.startAnimation(scaleAnimation);
-
-
+//                            if (dy < 0) {  // 向上滑动
+                            if ((top + dy) < 135) {
+                                Log.e(TAG, "onTouch: " + " aaaaa");
+                                llAtvtMainBlack.layout(left - 45, 255, right + 45, bottom);
+                                llAtvtMainBg.layout(left - 45, 0, right + 45, bottom);
+                                llAtvtMainSuperstratum.layout(left, 135, right, bottom);
 
                                 isCenter = false;
-                            }
-                            if (dy >= 10 ){  // 向下滑动
-                                // 动画效果
+                            } else {
+                                Log.e(TAG, "onTouch: " + " bbbbb");
+                                llAtvtMainBlack.layout(left - 45, top + dy + 120, right + 45, bottom);
+                                llAtvtMainBg.layout(left - 45, 0, right + 45, bottom);
+                                llAtvtMainSuperstratum.layout(left, top + dy, right, bottom);
 
                             }
-                        }else {
+
+//                                // 设置本次TextView的上 下 左 右各边与父控件的距离
+//                                Log.e(TAG, "onTouch: ----" + " scrollview 向上滑动");
+
+//                            }
+                            if (dy > 0) {  // 向下滑动
+                                // 动画效果
+                                Log.e(TAG, "onTouch: ----" + "在顶部向下滑动    弹回990 处");
+
+                            }
+
+
+                        } else {
                             //scrollView获取焦点
 
-                            if (dy <= (-10)) {  // 向上滑动
+                            if (dy < 0) {  // 向上滑动
                                 // 动画效果
-
+                                Log.e(TAG, "onTouch: ====" + "向上滑动  scrollview  滑动");
                             }
-                            if (dy >= 10 ){  // 向下滑动
-                                // 设置到中间去
-
-                                TimerTask task = new TimerTask() {
-                                    @Override
-                                    public void run() {
-
-                                        runOnUiThread(new Runnable() {      // UI thread
-                                            @Override
-                                            public void run() {
-                                                llAtvtMainSuperstratum.layout(left, 990, right, bottom);
-                                            }
-                                        });
-
-
-                                    }
-                                };
-                                timer.schedule(task, 1000);       // timeTask
-
-
-                                Animation twoAnimationX = AnimationUtils.loadAnimation(TestActivity.this, R.anim.ll_atvt_main_superstratum_x);
-                                llAtvtMainSuperstratum.startAnimation(twoAnimationX);
-
-                                Animation oneAnimationX = AnimationUtils.loadAnimation(TestActivity.this, R.anim.ll_atvt_main_black_anim_x);
-                                llAtvtMainBlack.startAnimation(oneAnimationX);
-
-                                Animation scaleAnimation = AnimationUtils.loadAnimation(TestActivity.this, R.anim.ll_atvt_main_iv_anim_x);
-                                llAtvtMainIv.startAnimation(scaleAnimation);
+//                            if (dy > 0) {  // 向下滑动
+                            if ((top + dy) > 990) {
+                                Log.e(TAG, "onTouch: " + " ccccc");
+                                llAtvtMainBlack.layout(left - 45, 1110, right + 45, bottom);
+                                llAtvtMainBg.layout(left - 45, 0, right + 45, bottom);
+                                llAtvtMainSuperstratum.layout(left, 990, right, bottom);
 
                                 isCenter = true;
-                            }
+                            } else {
+                                Log.e(TAG, "onTouch: " + " ddddd");
+                                llAtvtMainBlack.layout(left - 45, top + dy + 120, right + 45, bottom);
+                                llAtvtMainBg.layout(left - 45, 0, right + 45, bottom);
+                                llAtvtMainSuperstratum.layout(left, top + dy, right, bottom);
 
+                            }
+                            // 设置到中间去
+//                                Log.e(TAG, "onTouch: ====" + "向下滑动");
+
+
+//                            }
 
                         }
-
 
                         // 本次移动的结尾作为下一次移动的开始
                         startX = (int) event.getRawX();
                         startY = (int) event.getRawY();
+                        Log.e(TAG, "onTouch: -=-=-= startX = " + startX + "  startY  =  " + startY);
                         break;
                     case MotionEvent.ACTION_UP:
                         break;
                 }
+                Log.e(TAG, "onTouch: " + "--------------------");
                 rlAtvtMainContent.invalidate();
                 return true;//如果返回true,从手指接触屏幕到手指离开屏幕，将不会触发点击事件。
             }
@@ -214,7 +196,6 @@ public class TestActivity extends AppCompatActivity implements IBaseView {
 
 
     }
-
 
 
 }

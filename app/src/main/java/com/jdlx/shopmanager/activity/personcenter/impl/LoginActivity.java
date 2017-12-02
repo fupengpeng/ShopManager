@@ -51,8 +51,8 @@ public class LoginActivity extends BaseActivity implements ILoginView {
             decorView.setSystemUiVisibility(option);
             getWindow().setStatusBarColor(Color.TRANSPARENT);
         }
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.hide();
+//        ActionBar actionBar = getSupportActionBar();
+//        actionBar.hide();
 
         //创建主导器
         loginPresenter = LoginPresenterFactory.newInstance(this);
@@ -89,7 +89,7 @@ public class LoginActivity extends BaseActivity implements ILoginView {
                 break;
             case R.id.tv_password_login:
 
-                intent = new Intent(this, ServiceTicketActivity.class);
+                intent = new Intent(this, TestActivity.class);
                 startActivity(intent);
                 break;
         }
