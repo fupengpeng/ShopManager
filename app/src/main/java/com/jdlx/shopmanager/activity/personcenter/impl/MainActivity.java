@@ -85,8 +85,7 @@ public class MainActivity extends AppCompatActivity implements IBaseView {
             decorView.setSystemUiVisibility(option);
             getWindow().setStatusBarColor(Color.TRANSPARENT);
         }
-//        ActionBar actionBar = getSupportActionBar();
-//        actionBar.hide();
+
         initView();
     }
 

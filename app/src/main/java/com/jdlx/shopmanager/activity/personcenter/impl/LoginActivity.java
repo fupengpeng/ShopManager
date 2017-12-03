@@ -51,8 +51,7 @@ public class LoginActivity extends BaseActivity implements ILoginView {
             decorView.setSystemUiVisibility(option);
             getWindow().setStatusBarColor(Color.TRANSPARENT);
         }
-//        ActionBar actionBar = getSupportActionBar();
-//        actionBar.hide();
+
 
         //创建主导器
         loginPresenter = LoginPresenterFactory.newInstance(this);

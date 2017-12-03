@@ -22,7 +22,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * Created by fupengpeng on 2017/12/1 0001.
+ *
  */
 
 public class TestActivity extends AppCompatActivity implements IBaseView {
